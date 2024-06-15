@@ -13,6 +13,7 @@ import Categories from "@/components/Categories";
 import Header from "@/components/Header";
 import { useRef } from "react";
 import { XMarkIcon } from "react-native-heroicons/outline";
+import { Collapsible } from "@/components/Collapsible";
 
 export default function tabNew() {
   const drawer = useRef<DrawerLayoutAndroid>(null);
@@ -32,7 +33,7 @@ export default function tabNew() {
         />
         <View style={tw`flex-row gap-2 items-center`}>
           <View style={tw`flex flex-col gap-1`}>
-            <Text>آسن</Text>
+            <Text style={[tw``, styles.customFont]}>آسن</Text>
             <Text>Assen</Text>
           </View>
           <Image
@@ -45,12 +46,19 @@ export default function tabNew() {
         <Text>Get Data from API</Text>
       </View>
       <View style={tw`w-full border-b-2 border-gray-300 p-4`}>
-        <Text>انتخاب واحد پولی</Text>
+        <Collapsible title="انتخاب واحد پولی">
+          <View style={tw`flex flex-col gap-4 pr-2`}>
+            <Text style={[tw``, styles.customFont]}>تومان (Toman)</Text>
+            <Text style={[tw``, styles.customFont]}>ریال (IRR)</Text>
+            <Text style={[tw``, styles.customFont]}>دلار (USD)</Text>
+            <Text style={[tw``, styles.customFont]}>یورو (EUR)</Text>
+          </View>
+        </Collapsible>
       </View>
       <View style={tw`w-full flex flex-col gap-4 p-4`}>
-        <Text>بلاگ</Text>
-        <Text>درباره ما</Text>
-        <Text>تماس با ما</Text>
+        <Text style={[tw``, styles.customFont]}>بلاگ</Text>
+        <Text style={[tw``, styles.customFont]}>درباره ما</Text>
+        <Text style={[tw``, styles.customFont]}>تماس با ما</Text>
       </View>
     </View>
   );
@@ -81,4 +89,8 @@ export default function tabNew() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  customFont: {
+    fontFamily: "IranSans",
+  },
+});

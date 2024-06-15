@@ -17,24 +17,25 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [fontsLoaded, fontError] = useFonts({
-    IranSans: require("@/assets/fonts/iransanswebfanum.ttf"),
+    IranSans: require("../assets/fonts/iransanswebfanum.ttf"),
+    IranSansBold: require("../assets/fonts/iransansbold.ttf"),
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  // useEffect(() => {
-  //   if (loaded) {
-  //     SplashScreen.hideAsync();
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (fontsLoaded || fontError) {
+  //     await SplashScreen.hideAsync();
   //   }
-  // }, [loaded]);
+  // }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  // if (!fontsLoaded && !fontError) {
+  //   return null;
+  // }
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
