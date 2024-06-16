@@ -11,8 +11,9 @@ import tw from "twrnc";
 export function Collapsible({
   children,
   title,
-}: PropsWithChildren & { title: string }) {
-  const [isOpen, setIsOpen] = useState(false);
+  defaultOpen,
+}: PropsWithChildren & { title: string; defaultOpen: boolean }) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const theme = useColorScheme() ?? "light";
 
   return (

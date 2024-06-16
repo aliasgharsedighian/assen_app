@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ScrollView,
   DrawerLayoutAndroid,
+  TouchableOpacity,
 } from "react-native";
 import tw from "twrnc";
 import Categories from "@/components/Categories";
@@ -47,7 +48,7 @@ export default function HomeScreen() {
           <Text>Get Data from API</Text>
         </View>
         <View style={tw`w-full border-b-2 border-gray-300 p-4`}>
-          <Collapsible title="انتخاب واحد پولی">
+          <Collapsible title="انتخاب واحد پولی" defaultOpen={false}>
             <View style={tw`flex flex-col gap-4 pr-2`}>
               <Text style={[tw``, styles.customFont]}>تومان (Toman)</Text>
               <Text style={[tw``, styles.customFont]}>ریال (IRR)</Text>
@@ -84,6 +85,7 @@ export default function HomeScreen() {
           {/* banner */}
           <Categories />
           {/* table */}
+
           {/* consultation-request */}
         </ScrollView>
       </SafeAreaView>
