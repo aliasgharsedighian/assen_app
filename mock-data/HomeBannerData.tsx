@@ -22,10 +22,11 @@ export interface HomeBannerData {
 
 export interface HomeCategoryData {
   id: number;
-  images: string;
+  images: any;
   link: string;
   alt: string;
   text: string;
+  slug: string;
 }
 
 export interface homeBlogDataType {
@@ -296,24 +297,27 @@ export const BannerData: BannerDataType = {
   homeCategory: [
     {
       id: 1,
-      images: "@/assets/images/milgerd-category.png",
+      images: require("@/assets/images/milgerd-category.png"),
       link: "/category/میلگرد",
       alt: "دسته بندی میلگرد",
       text: "میلگرد",
+      slug: "میلگرد",
     },
     {
       id: 2,
-      images: "@/assets/images/nabshi-category.png",
+      images: require("@/assets/images/nabshi-category.png"),
       link: "/category/نبشی",
       alt: "دسته بندی نبشی",
       text: "نبشی",
+      slug: "نبشی",
     },
     {
       id: 3,
-      images: "@/assets/images/varagh-category.png",
+      images: require("@/assets/images/varagh-category.png"),
       link: "/category/ورق-سیاه",
       alt: "دسته بندی ورق سیاه",
       text: "ورق سیاه",
+      slug: "ورق-سیاه",
     },
   ],
 };
