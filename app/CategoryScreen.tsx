@@ -24,6 +24,9 @@ import { Collapsible } from "@/components/Collapsible";
 
 const styles = require("@/app/style");
 
+// @ts-ignore
+import { API_ADDRESS } from "@env";
+
 export default function CategoryScreen() {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(true);
@@ -41,7 +44,7 @@ export default function CategoryScreen() {
   ) => {
     setLoading(true);
     const res = await fetch(
-      `https://app.assen.ir/api/v1/category/${slug}?${
+      `${API_ADDRESS}category/${slug}?${
         factory_slug && `factory_slug=${factory_slug}`
       }&${size_slug && `size_slug=${size_slug}`}&${
         sort_type && `sort_type=${sort_type}`
@@ -255,6 +258,13 @@ export default function CategoryScreen() {
                           {item.size_title.match(/\d+/)[0]}
                         </Text>
                         <Text
+                          onPress={() => {
+                            // @ts-ignore
+                            navigation.navigate("ProductScreen", {
+                              title: item.title,
+                              slug: item.slug,
+                            });
+                          }}
                           style={[
                             styles.regularFont,
                             tw`text-[12px] w-[28%] text-center`,
