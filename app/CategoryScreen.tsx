@@ -22,6 +22,8 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { BottomDrawer } from "@/components/BottomDrawer";
 import { Collapsible } from "@/components/Collapsible";
 
+const styles = require("@/app/style");
+
 export default function CategoryScreen() {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(true);
@@ -71,7 +73,7 @@ export default function CategoryScreen() {
           >
             <ArrowLeftIcon size={20} color="#960b0b" />
           </TouchableOpacity>
-          <Text style={[styles.font, tw`text-2xl pt-4`]}>{text}</Text>
+          <Text style={[styles.regularFont, tw`text-2xl pt-4`]}>{text}</Text>
         </View>
         <BottomDrawer title="فیلتر">
           <View style={tw`w-full gap-6`}>
@@ -79,7 +81,7 @@ export default function CategoryScreen() {
               <View style={tw`flex flex-col gap-4 pr-2`}>
                 {data?.factories.map((item: any, index: number) => (
                   <View key={index}>
-                    <Text style={[tw``, styles.font]}>{item.title}</Text>
+                    <Text style={[tw``, styles.regularFont]}>{item.title}</Text>
                   </View>
                 ))}
               </View>
@@ -88,7 +90,7 @@ export default function CategoryScreen() {
               <View style={tw`flex flex-col gap-4 pr-2`}>
                 {data?.sizes.map((item: any, index: number) => (
                   <View key={index}>
-                    <Text style={[tw``, styles.font]}>{item.title}</Text>
+                    <Text style={[tw``, styles.regularFont]}>{item.title}</Text>
                   </View>
                 ))}
               </View>
@@ -120,19 +122,24 @@ export default function CategoryScreen() {
                     style={tw`bg-[#23395b] text-white flex-row justify-between px-2 py-4 rounded-t-lg`}
                   >
                     <View style={tw`flex flex-col items-end gap-2 w-full`}>
-                      <Text style={[styles.font, tw`text-[14px] text-white`]}>
+                      <Text
+                        style={[styles.regularFont, tw`text-[14px] text-white`]}
+                      >
                         {item.factory_title}
                       </Text>
                       <View style={tw`gap-2 w-full items-end`}>
                         <View style={tw`flex-row items-center gap-1`}>
-                          <Text style={[styles.font, tw`text-white`]}>
+                          <Text style={[styles.regularFont, tw`text-white`]}>
                             آخرین بروزرسانی:{item.products[0].updated_at}
                           </Text>
                           <ClockIcon size={20} color="white" />
                         </View>
                         <View style={tw`flex-row items-center gap-1`}>
                           <Text
-                            style={[styles.font, tw`text-[12px] text-white`]}
+                            style={[
+                              styles.regularFont,
+                              tw`text-[12px] text-white`,
+                            ]}
                           >
                             قیمت ها با احتساب 10 درصد مالیات بر ارزش افزوده
                             می‌باشند.
@@ -148,7 +155,7 @@ export default function CategoryScreen() {
                   >
                     <Text
                       style={[
-                        styles.font,
+                        styles.regularFont,
                         tw`text-[12px] w-[12%] text-center text-white`,
                       ]}
                     >
@@ -156,7 +163,7 @@ export default function CategoryScreen() {
                     </Text>
                     <Text
                       style={[
-                        styles.font,
+                        styles.regularFont,
                         tw`text-[12px] w-[18%] text-center text-white`,
                       ]}
                     >
@@ -164,7 +171,7 @@ export default function CategoryScreen() {
                     </Text>
                     <Text
                       style={[
-                        styles.font,
+                        styles.regularFont,
                         tw`text-[12px] w-[12%] text-center text-white`,
                       ]}
                     >
@@ -172,7 +179,7 @@ export default function CategoryScreen() {
                     </Text>
                     <Text
                       style={[
-                        styles.font,
+                        styles.regularFont,
                         tw`text-[12px] w-[18%] text-center text-white`,
                       ]}
                     >
@@ -180,7 +187,7 @@ export default function CategoryScreen() {
                     </Text>
                     <Text
                       style={[
-                        styles.font,
+                        styles.regularFont,
                         tw`text-[12px] w-[12%] text-center text-white`,
                       ]}
                     >
@@ -188,7 +195,7 @@ export default function CategoryScreen() {
                     </Text>
                     <Text
                       style={[
-                        styles.font,
+                        styles.regularFont,
                         tw`text-[12px] w-[28%] text-center text-white`,
                       ]}
                     >
@@ -205,7 +212,7 @@ export default function CategoryScreen() {
                       >
                         <Text
                           style={[
-                            styles.font,
+                            styles.regularFont,
                             tw`text-[12px] w-[12%] text-center ${
                               item.fluctuation_pric >= 0
                                 ? "text-green-800"
@@ -217,7 +224,7 @@ export default function CategoryScreen() {
                         </Text>
                         <Text
                           style={[
-                            styles.font,
+                            styles.regularFont,
                             tw`text-[12px] w-[18%] text-center`,
                           ]}
                         >
@@ -225,7 +232,7 @@ export default function CategoryScreen() {
                         </Text>
                         <Text
                           style={[
-                            styles.font,
+                            styles.regularFont,
                             tw`text-[12px] w-[12%] text-center`,
                           ]}
                         >
@@ -233,7 +240,7 @@ export default function CategoryScreen() {
                         </Text>
                         <Text
                           style={[
-                            styles.font,
+                            styles.regularFont,
                             tw`text-[12px] w-[18%] text-center`,
                           ]}
                         >
@@ -241,7 +248,7 @@ export default function CategoryScreen() {
                         </Text>
                         <Text
                           style={[
-                            styles.font,
+                            styles.regularFont,
                             tw`text-[12px] w-[12%] text-center`,
                           ]}
                         >
@@ -249,7 +256,7 @@ export default function CategoryScreen() {
                         </Text>
                         <Text
                           style={[
-                            styles.font,
+                            styles.regularFont,
                             tw`text-[12px] w-[28%] text-center`,
                           ]}
                         >
@@ -267,12 +274,3 @@ export default function CategoryScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  font: {
-    fontFamily: "IranSans",
-  },
-  boldFont: {
-    fontFamily: "IranSansBold",
-  },
-});

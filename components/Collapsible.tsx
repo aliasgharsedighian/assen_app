@@ -8,6 +8,8 @@ import { ThemedView } from "@/components/ThemedView";
 import { Colors } from "@/constants/Colors";
 import tw from "twrnc";
 
+const style = require("@/app/style");
+
 export function Collapsible({
   children,
   title,
@@ -37,10 +39,7 @@ export function Collapsible({
           }
         />
         <Text
-          style={[
-            tw`flex-1 ${isOpen ? "text-[#960b0b]" : ""}`,
-            styles.customFont,
-          ]}
+          style={[tw`flex-1 ${isOpen ? "text-[#960b0b]" : ""}`, style.boldFont]}
         >
           {title}
         </Text>
@@ -60,8 +59,5 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginLeft: 24,
     backgroundColor: "transparent",
-  },
-  customFont: {
-    fontFamily: "IranSansBold",
   },
 });

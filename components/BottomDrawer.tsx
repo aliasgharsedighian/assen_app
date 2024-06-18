@@ -56,7 +56,7 @@ export function BottomDrawer({
   // }, [modalRef, isBottomSheetOpen]);
 
   return (
-    <>
+    <View>
       <Modal
         ref={modalRef}
         animationType="slide"
@@ -66,32 +66,39 @@ export function BottomDrawer({
         // We pass our function as default function to close the Modal
         onRequestClose={handleCloseBottomSheet}
       >
-        <View
-          style={[
-            { height: windowHeight * 0.6 },
-            tw`border-gray-300 absolute left-0 right-0 justify-start items-end bg-white rounded-t-md py-4 bottom-0 border w-full`,
-          ]}
+        <TouchableOpacity
+          style={tw`flex-1 bg-black bg-opacity-60`}
+          activeOpacity={1}
+          onPressOut={handleCloseBottomSheet}
         >
-          <View
-            style={tw`w-full flex-row items-end justify-between gap-4 w-full border-b pb-4 border-gray-200`}
+          <TouchableOpacity
+            activeOpacity={1}
+            style={[
+              { height: windowHeight * 0.6 },
+              tw`border-gray-300 absolute left-0 right-0 justify-start items-end bg-white rounded-t-md py-4 bottom-0 border w-full opacity-100`,
+            ]}
           >
-            <TouchableOpacity
-              style={tw`w-full items-start px-2`}
-              onPress={handleCloseBottomSheet}
+            <View
+              style={tw`w-full flex-row items-end justify-between gap-4 w-full border-b pb-4 border-gray-200`}
             >
-              <XMarkIcon size={20} color="#000" />
-            </TouchableOpacity>
-          </View>
-          <ScrollView
-            contentContainerStyle={{
-              paddingBottom: 100,
-              alignItems: "flex-end",
-            }}
-            style={tw`w-full px-2 py-4`}
-          >
-            {children}
-          </ScrollView>
-        </View>
+              <TouchableOpacity
+                onPress={handleCloseBottomSheet}
+                style={tw`w-full items-start px-2`}
+              >
+                <XMarkIcon size={20} color="#000" />
+              </TouchableOpacity>
+            </View>
+            <ScrollView
+              contentContainerStyle={{
+                paddingBottom: 100,
+                alignItems: "flex-end",
+              }}
+              style={tw`w-full px-2 py-4`}
+            >
+              {children}
+            </ScrollView>
+          </TouchableOpacity>
+        </TouchableOpacity>
       </Modal>
       <View style={tw``}>
         <TouchableOpacity
@@ -105,8 +112,6 @@ export function BottomDrawer({
           )}
         </TouchableOpacity>
       </View>
-    </>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({});

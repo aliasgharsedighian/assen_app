@@ -8,6 +8,8 @@ interface PageProps {
   item: HomeCategoryData;
 }
 
+const style = require("@/app/style");
+
 export default function CategoryCard({ item }: PageProps) {
   const navigation = useNavigation();
 
@@ -25,7 +27,9 @@ export default function CategoryCard({ item }: PageProps) {
       style={tw`relative mr-2`}
     >
       <Image style={tw`h-30 w-40 rounded`} source={item.images} />
-      <Text style={tw`absolute bottom-1 left-1 font-bold`}>{item.text}</Text>
+      <Text style={[style.regularFont, tw`absolute bottom-1 left-1 font-bold`]}>
+        {item.text}
+      </Text>
     </TouchableOpacity>
   );
 }
